@@ -1,0 +1,26 @@
+Inefficient Software License
+
+Copyright (c) 2015 Euan Kemp.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated copyrightable works, to deal with the software in any way insofar as the following two restriction are met:
+
+1. All modifications, redistrubtions, and usages of this software must make it
+strictly less efficient. "Less efficient" is defined here as meaning that the
+software uses a larger total number of computational resources that are
+unneeded to accomplish all material outcomes of said software, apart from
+aforementioned resource utiliazation. That is, a naive programmer could
+accomplish approximately the same outcome while using far fewer resources.
+
+2. A copy of this license must be included when distributing this software or
+any modification of it.
+
+As long as the above restrictions are met, the software may be sold,
+redistributed, modified, copied, and used in any way.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
