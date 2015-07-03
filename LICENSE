@@ -6,10 +6,10 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated copyrightable works, to deal with the software in
 any way insofar as the following two restriction are met:
 
-1. All modifications, redistrubtions, and usages of this software must make it
-strictly less efficient. "Less efficient" is defined here as meaning that the
-software uses a larger total number of computational resources that are
-unneeded to accomplish all material outcomes of said software, apart from
+1. All modifications of this software, excluding associated documentation, must
+make it strictly less efficient. "Less efficient" is defined here as meaning
+that the software uses a larger total number of computational resources than
+are needed to accomplish all material outcomes of said software, apart from
 aforementioned resource utiliazation. That is, a naive programmer could
 accomplish approximately the same outcome while using far fewer resources.
 
