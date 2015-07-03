@@ -1,0 +1,11 @@
+[package]
+name = "gunpowder-memhog"
+version = "0.1.0"
+authors = ["euank <euank@euank.com>"]
+
+[dependencies]
+argparse = "*"
+rustc-serialize = "*"
+regex = "0.1.8"
+time = "0.1"
+libc = "*"
