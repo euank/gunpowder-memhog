@@ -4,6 +4,7 @@ extern crate time;
 
 use argparse::{ArgumentParser, Store};
 use std::collections::HashMap;
+use std::vec::Vec;
 use std::str::FromStr;
 use std::thread;
 use std::fmt;
@@ -80,13 +81,13 @@ impl FromStr for Bytes {
 }
 
 fn waste_memory(size: usize) {
-    println!("Wasting {} bytes", size);
+    let mut v: Vec<u8> = Vec::with_capacity(size);
     unsafe {
-        let ptr = libc::malloc(size as libc::size_t) as *mut u8;
-        std::ptr::write_bytes(ptr as *mut u8, 0, size - 1 as usize);
-        // use the memory and then forget about it; if you don't use it then you'll get VIRT memory
-        // only
+        // Same as pushing 'size' 1s onto it, but much faster. Still fairly slow sadly
+        std::ptr::write_bytes(v.as_mut_ptr(), 1u8, size);
     }
+    // Forgetting it forever isn't unsafe :D
+    std::mem::forget(v);
 }
 
 fn main() {
@@ -126,6 +127,7 @@ fn main() {
         waste_memory((final_memory.0 - start_memory.0) as usize);
     }
 
+    println!("Done wasting memory");
     loop {
         std::thread::sleep_ms(500);
     }
