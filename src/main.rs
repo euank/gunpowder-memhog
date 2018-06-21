@@ -4,12 +4,13 @@ extern crate time;
 
 use argparse::{ArgumentParser, Store};
 use std::collections::HashMap;
-use std::vec::Vec;
-use std::str::FromStr;
-use std::thread::sleep;
-use std::thread;
-use std::time::Duration;
 use std::fmt;
+use std::iter::Iterator;
+use std::str::FromStr;
+use std::thread;
+use std::thread::sleep;
+use std::time::Duration;
+use std::vec::Vec;
 
 /// The `Bytes` type represents a number of bytes.
 #[derive(Debug)]
@@ -42,14 +43,12 @@ impl FromStr for Bytes {
     type Err = Error;
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         let mut byte_size_map: HashMap<String, i64> = HashMap::new();
-        // TODO, pow! macro
-        byte_size_map.insert("b".to_string(), 1);
-        byte_size_map.insert("kb".to_string(), 1024);
-        byte_size_map.insert("mb".to_string(), 1024 * 1024);
-        byte_size_map.insert("gb".to_string(), 1024 * 1024 * 1024);
-        byte_size_map.insert("tb".to_string(), 1024 * 1024 * 1024 * 1024);
-        byte_size_map.insert("pb".to_string(), 1024 * 1024 * 1024 * 1024 * 1024);
-        byte_size_map.insert("eb".to_string(), 1024 * 1024 * 1024 * 1024 * 1024 * 1024);
+        for (i, size) in vec!["b", "kb", "mb", "gb", "tb", "pb", "eb"]
+            .into_iter()
+            .enumerate()
+        {
+            byte_size_map.insert(size.to_owned(), 1024i64.pow(i as u32));
+        }
         // Larger sizes don't fit in i64
 
         // Split something of the format "1234MB" into "123", "MB", lowercase the postfix, and then
@@ -104,8 +103,11 @@ fn main() {
     {
         let mut ap = ArgumentParser::new();
         ap.set_description("Take up memory");
-        ap.refer(&mut final_memory)
-            .add_argument("final memory", Store, "Memory to reach after timeout");
+        ap.refer(&mut final_memory).add_argument(
+            "final memory",
+            Store,
+            "Memory to reach after timeout",
+        );
         ap.refer(&mut start_memory)
             .add_option(&["-m", "--start-memory"], Store, "Starting memory");
         ap.refer(&mut exit_timeout).add_option(

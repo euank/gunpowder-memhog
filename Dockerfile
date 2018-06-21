@@ -1,4 +1,4 @@
-FROM rust:1.19 as builder
+FROM rust:1.26 as builder
 RUN mkdir /gunpowder-memhog
 COPY . /gunpowder-memhog
 RUN cd /gunpowder-memhog && cargo build --release

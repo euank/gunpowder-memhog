@@ -1,10 +1,10 @@
 [package]
 name = "gunpowder-memhog"
-version = "0.1.0"
-authors = ["euank <euank@euank.com>"]
+version = "0.2.0"
+authors = ["Euan Kemp <euank@euank.com>"]
 
 [dependencies]
-argparse = "*"
-regex = "0.1.8"
+argparse = "0.2"
+regex = "1"
 time = "0.1"
-libc = "*"
+libc = "0.2"
